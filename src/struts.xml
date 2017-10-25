@@ -14,4 +14,25 @@
 			<result name="success">/welcome.jsp</result>
 		</action>
 	</package>
+	
+	
+	
+	
+	<!-- 最简单的action。没有实现接口，没有继承 -->
+	<package name="Test" extends="struts-default">
+		<action name="hello" class="com.test.action.HelloAction">
+			<result name="ok">/hello.jsp</result>
+		</action>
+	</package>
+	<!-- 方法访问配置 ，具体方法配置，多了繁琐-->
+	<package name="Method" extends="struts-default">
+		<action name="addMethod" class="com.test.action.MethodAction" method="add"></action>
+		<action name="updateMethod" class="com.test.action.MethodAction" method="update"></action>
+		<action name="delMethod" class="com.test.action.MethodAction" method="del"></action>
+	</package>
+	<!-- 方法访问配置 ： 通配符，简化-->
+	<package name="Method2" extends="struts-default">
+		<action name="*" class="com.test.action.MethodAction" method="{1}"></action>
+	</package>
+	
 </struts>
